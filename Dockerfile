@@ -33,8 +33,7 @@ RUN mkdir -p /usr/download \
 cd /usr/download
 RUN wget -c https://nginx.org/download/nginx-1.15.6.tar.gz
 RUN tar -zxvf nginx-1.15.6.tar.gz
-RUN cd nginx-1.15.6  && ls -lna && sh configure --help
-RUN ./configure --prefix=/usr/local/nginx \
+RUN cd nginx-1.15.6 && sh ./configure --prefix=/usr/local/nginx \
 --sbin-path=/usr/sbin/nginx \
 --conf-path=/etc/nginx/nginx.conf \
 --error-log-path=/var/log/nginx/error.log \
