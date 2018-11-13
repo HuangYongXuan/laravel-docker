@@ -31,7 +31,7 @@ composer
 
 RUN mkdir -p /usr/download \
 cd /usr/download \
-wget -c https://nginx.org/download/nginx-1.15.6.tar.gz \
+wget https://nginx.org/download/nginx-1.15.6.tar.gz \
 tar -zxvf nginx-1.15.6.tar.gz \
 cd nginx-1.15.6 \
 ./configure \
