@@ -58,11 +58,15 @@ RUN cd nginx-1.15.6 && sh ./configure --prefix=/usr/local/nginx \
  && make && make install
 RUN mkdir -p /usr/www/public \
     && cd /usr/www/public
-EXPOSE 8000 8002
 
-VOLUME ["/usr/www"]
-
+RUN groupadd nginx
+RUN useradd -g nginx -M nginx -s /sbin/nologin
+COPY ./index.php /usr/www/public
+RUN rm -rf /etc/nginx/nginx.conf
+COPY ./nginx.conf /etc/nginx
 WORKDIR /usr/www
-CMD php -S 0.0.0.0:8000 -t /usr/www/public
 
-#CMD /start.sh
+EXPOSE 8000
+VOLUME ["/usr/www"]
+CMD /usr/sbin/nginx
+
