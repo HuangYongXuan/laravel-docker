@@ -60,7 +60,7 @@ cd nginx-1.15.6 \
 RUN make && make install
 RUN mkdir -p /usr/www/public \
     && cd /usr/www/public
-EXPOSE 8000
+EXPOSE 8000 8002
 
 VOLUME ["/usr/www"]
 
