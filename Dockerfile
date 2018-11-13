@@ -54,8 +54,8 @@ RUN cd nginx-1.15.6 && sh ./configure --prefix=/usr/local/nginx \
 --with-http_random_index_module \
 --with-http_secure_link_module \
 --with-http_stub_status_module \
---with-http_auth_request_module
-RUN make && make install
+--with-http_auth_request_module \
+ && make && make install
 RUN mkdir -p /usr/www/public \
     && cd /usr/www/public
 EXPOSE 8000 8002
