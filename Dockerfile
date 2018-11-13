@@ -30,11 +30,11 @@ php72w-pecl-mongodb \
 composer
 
 RUN mkdir -p /usr/download \
-cd /usr/download \
-wget https://nginx.org/download/nginx-1.15.6.tar.gz \
-tar -zxvf nginx-1.15.6.tar.gz \
-cd nginx-1.15.6 \
-./configure \
+cd /usr/download
+RUN wget https://nginx.org/download/nginx-1.15.6.tar.gz
+RUN tar -zxvf nginx-1.15.6.tar.gz
+RUN cd nginx-1.15.6
+RUN ./configure \
 --prefix=/usr/local/nginx \
 --sbin-path=/usr/sbin/nginx \
 --conf-path=/etc/nginx/nginx.conf \
