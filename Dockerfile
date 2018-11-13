@@ -70,4 +70,5 @@ EXPOSE 8000
 VOLUME ["/usr/www"]
 
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+ENTRYPOINT php-fpm
 
