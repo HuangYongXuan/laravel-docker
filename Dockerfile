@@ -68,5 +68,6 @@ WORKDIR /usr/www
 
 EXPOSE 8000
 VOLUME ["/usr/www"]
-CMD /usr/sbin/nginx
+
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
