@@ -3,7 +3,7 @@ MAINTAINER 754060604@qq.com
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-RUN yum -y install gcc gcc-c++ \
+RUN yum -y install gcc gcc-c++ wget \
 pcre pcre-devel \
 zlib zlib-devel \
 openssl openssl-devel \
