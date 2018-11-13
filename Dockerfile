@@ -34,6 +34,7 @@ cd /usr/download
 RUN wget https://nginx.org/download/nginx-1.15.6.tar.gz
 RUN tar -zxvf nginx-1.15.6.tar.gz
 RUN cd nginx-1.15.6
+RUN chmod 777 ./configure
 RUN ./configure \
 --prefix=/usr/local/nginx \
 --sbin-path=/usr/sbin/nginx \
