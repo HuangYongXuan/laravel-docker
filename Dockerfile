@@ -28,13 +28,13 @@ php72w-pecl-redis \
 php72w-pecl-memcached \
 php72w-pecl-mongodb \
 composer
-
+RUN yum install -y sudo
 RUN mkdir -p /usr/download \
 cd /usr/download
-RUN wget https://nginx.org/download/nginx-1.15.6.tar.gz
+RUN wget -c https://nginx.org/download/nginx-1.15.6.tar.gz
 RUN tar -zxvf nginx-1.15.6.tar.gz
 RUN cd nginx-1.15.6 && ls
-RUN sh ./configure --help
+RUN sudo ./configure --help
 RUN ./configure --prefix=/usr/local/nginx \
 --sbin-path=/usr/sbin/nginx \
 --conf-path=/etc/nginx/nginx.conf \
