@@ -68,6 +68,11 @@ WORKDIR /usr/www
 #COPY ./entrypoint.sh /usr/sbin
 #RUN chmod 755 /usr/sbin/entrypoint.sh
 
+COPY ./php-fpm /etc/init.d
+RUN chmod 755 /etc/init.d/php-fpm;
+RUN yum install initscripts -y;
+RUN  chkconfig --add /etc/init.d/php-fpm && service php-fpm start && chkconfig php-fpm on && systemctl enable php-fpm.service
+
 EXPOSE 8000
 VOLUME ["/usr/www"]
 
