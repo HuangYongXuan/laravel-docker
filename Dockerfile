@@ -66,7 +66,7 @@ RUN rm -rf /etc/nginx/nginx.conf
 COPY ./nginx.conf /etc/nginx
 
 COPY ./nginx.conf /lib/systemd/system
-RUN systemctl enable php-fpm.service && systemctl start nginx.service
+#RUN systemctl enable php-fpm.service && systemctl start nginx.service
 
 WORKDIR /usr/www
 EXPOSE 8000
