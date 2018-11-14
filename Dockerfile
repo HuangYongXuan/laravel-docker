@@ -73,7 +73,7 @@ RUN chmod +x /etc/rc.d/rc.local;
 RUN sed -i 'N;12ash /run.sh ' /etc/rc.local
 
 WORKDIR /usr/www
-EXPOSE 8000exit
+EXPOSE 8000
 VOLUME ["/usr/www"]
 
 CMD ["/usr/sbin/init"]
