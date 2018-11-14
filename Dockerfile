@@ -65,9 +65,10 @@ COPY ./index.php /usr/www/public
 RUN rm -rf /etc/nginx/nginx.conf
 COPY ./nginx.conf /etc/nginx
 WORKDIR /usr/www
+COPY ./entrypoint.sh /usr/sbin
 
 EXPOSE 8000
 VOLUME ["/usr/www"]
 
-CMD ["php-fpm && /usr/sbin/nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/usr/sbin/entrypoint.sh"]
 
