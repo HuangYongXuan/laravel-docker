@@ -66,10 +66,10 @@ RUN rm -rf /etc/nginx/nginx.conf
 COPY ./nginx.conf /etc/nginx
 WORKDIR /usr/www
 COPY ./entrypoint.sh /usr/sbin
-RUN chmod 777 /usr/sbin/entrypoint.sh
+RUN chmod 755 /usr/sbin/entrypoint.sh
 
 EXPOSE 8000
 VOLUME ["/usr/www"]
 
-ENTRYPOINT ["/usr/sbin/entrypoint.sh"]
-
+#ENTRYPOINT ["/usr/sbin/entrypoint.sh"]
+CMD nohup sh -c  '/usr/sbin/nginx -g daemon off; & php-fpm'
