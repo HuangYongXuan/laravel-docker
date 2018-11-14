@@ -1,4 +1,4 @@
-FROM centos:base
+FROM centos:latest
 MAINTAINER 754060604@qq.com
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
