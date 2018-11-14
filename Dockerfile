@@ -68,7 +68,8 @@ COPY ./nginx.conf /etc/nginx
 COPY ./nginx.service /lib/systemd/system
 #RUN systemctl enable php-fpm.service && systemctl start nginx.service
 COPY ./run.sh /
-RUN sed -i 'N;10ash /run.sh' /etc/profile && source /etc/profile
+RUN chmod +x /etc/rc.d/rc.local;
+RUN sed -i 'N;12ash /run.sh' /etc/rc.local
 
 WORKDIR /usr/www
 EXPOSE 8000
