@@ -71,5 +71,5 @@ RUN chmod 755 /usr/sbin/entrypoint.sh
 EXPOSE 8000
 VOLUME ["/usr/www"]
 
-#ENTRYPOINT ["/usr/sbin/entrypoint.sh"]
-CMD nohup sh -c  '/usr/sbin/nginx -g daemon off; & php-fpm'
+ENTRYPOINT ["/usr/sbin/entrypoint.sh"]
+#CMD nohup sh -c  '/usr/sbin/nginx -g daemon off; & php-fpm'
