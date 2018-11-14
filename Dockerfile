@@ -69,6 +69,5 @@ WORKDIR /usr/www
 EXPOSE 8000
 VOLUME ["/usr/www"]
 
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
-ENTRYPOINT php-fpm
+CMD ["php-fpm && /usr/sbin/nginx", "-g", "daemon off;"]
 
