@@ -1,4 +1,4 @@
-FROM centos:7.4.1708
+FROM centos:base
 MAINTAINER 754060604@qq.com
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -66,11 +66,11 @@ RUN rm -rf /etc/nginx/nginx.conf
 COPY ./nginx.conf /etc/nginx
 
 COPY ./nginx.service /lib/systemd/system
-#RUN systemctl enable php-fpm.service && systemctl start nginx.service
+
 COPY ./run.sh /
-RUN sed -i 'N;10ash /run.sh  ' /etc/profile && source /etc/profile
-RUN chmod +x /etc/rc.d/rc.local;
-RUN sed -i 'N;12ash /run.sh ' /etc/rc.local
+RUN chmod +x /run.sh
+RUN echo "/run.sh" >> /etc/rc.local
+RUN chmod +x /etc/rc.local
 
 WORKDIR /usr/www
 EXPOSE 8000
