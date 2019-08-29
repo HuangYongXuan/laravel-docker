@@ -68,7 +68,9 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && cp /index.php /usr/www/public \
     && cp /nginx.conf /etc/nginx \
     && rm -rf /usr/download \
-    && yum clean all && yum remove -y gcc gcc-c++ wget pcre pcre-devel zlib zlib-devel openssl openssl-devel sudo
+    && yum clean all
+
+#  && yum remove -y gcc gcc-c++ wget pcre pcre-devel zlib zlib-devel openssl openssl-devel sudo
 
 WORKDIR /usr/www
 EXPOSE 8000
