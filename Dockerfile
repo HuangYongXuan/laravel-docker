@@ -7,33 +7,32 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm \
     && yum -y install gcc gcc-c++ wget \
-        pcre pcre-devel \
-        zlib zlib-devel \
-        openssl openssl-devel \
-        php72w-bcmath \
-        php72w-xml \
-        php72w-gd \
-        php72w-cli \
-        php72w-fpm \
-        php72w-pear \
-        php72w-mysqlnd \
-        php72w-devel \
-        php72w-mcrypt \
-        php72w-mbstring \
-        php72w-common \
-        php72w-process \
-        php72w-pdo \
-        php72w-opcache \
-        php72w-intl \
-        php72w-pgsql \
-        php72w-pecl-imagick \
-        php72w-pecl-redis \
-        php72w-pecl-memcached \
-        php72w-pecl-mongodb \
-        composer \
-        sudo
-
-RUN mkdir -p /usr/download \
+    pcre pcre-devel \
+    zlib zlib-devel \
+    openssl openssl-devel \
+    php72w-bcmath \
+    php72w-xml \
+    php72w-gd \
+    php72w-cli \
+    php72w-fpm \
+    php72w-pear \
+    php72w-mysqlnd \
+    php72w-devel \
+    php72w-mcrypt \
+    php72w-mbstring \
+    php72w-common \
+    php72w-process \
+    php72w-pdo \
+    php72w-opcache \
+    php72w-intl \
+    php72w-pgsql \
+    php72w-pecl-imagick \
+    php72w-pecl-redis \
+    php72w-pecl-memcached \
+    php72w-pecl-mongodb \
+    composer \
+    sudo \
+    && mkdir -p /usr/download \
     && cd /usr/download \
     && wget -c http://nginx.org/download/nginx-1.17.3.tar.gz \
     && tar -zxvf nginx-1.17.3.tar.gz \
@@ -66,8 +65,8 @@ RUN mkdir -p /usr/download \
     && useradd -g nginx -M nginx -s /sbin/nologin \
     && rm -rf /etc/nginx/nginx.conf \
     && chmod +x /run.sh \
-    && echo "/run.sh" >> /etc/rc.local \
-    && chmod +x /etc/rc.local \
+    && cp /index.php /usr/www/public \
+    && cp /nginx.conf /etc/nginx \
     && rm -rf /usr/download \
     && yum clean all && yum remove -y gcc gcc-c++ wget pcre pcre-devel zlib zlib-devel openssl openssl-devel sudo
 
