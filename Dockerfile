@@ -1,10 +1,7 @@
 FROM centos:latest
 MAINTAINER 754060604@qq.com
 
-
-COPY ./index.php /usr/www/public
-COPY ./nginx.conf /etc/nginx
-COPY ./run.sh /
+COPY index.php nginx.conf run.sh /
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
@@ -38,9 +35,9 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 
 RUN mkdir -p /usr/download \
     && cd /usr/download \
-    && wget -c https://nginx.org/download/nginx-1.15.6.tar.gz \
-    && tar -zxvf nginx-1.15.6.tar.gz \
-    && cd nginx-1.15.6 && sh ./configure --prefix=/usr/local/nginx \
+    && wget -c http://nginx.org/download/nginx-1.17.3.tar.gz \
+    && tar -zxvf nginx-1.17.3.tar.gz \
+    && cd nginx-1.17.3 && sh ./configure --prefix=/usr/local/nginx \
         --sbin-path=/usr/sbin/nginx \
         --conf-path=/etc/nginx/nginx.conf \
         --error-log-path=/var/log/nginx/error.log \
