@@ -70,7 +70,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && rm -rf /etc/supervisord.conf \
     && cp /supervisord.conf /etc \
     && rm -rf /usr/download \
-    && yum clean all
+    && yum clean all \
     && yum remove -y gcc gcc-c++ wget pcre-devel zlib-devel openssl openssl-devel sudo
 
 WORKDIR /usr/www
