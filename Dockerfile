@@ -71,6 +71,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && cp /supervisord.conf /etc \
     && rm -rf /usr/download \
     && yum clean all \
+    && mkdir -p /usr/local/nginx/logs/ \
     && yum remove -y gcc gcc-c++ wget pcre-devel zlib-devel openssl openssl-devel sudo
 
 WORKDIR /usr/www
