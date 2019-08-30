@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-nginx -g "daemon off;" && php-fpm
+/usr/bin/supervisord -c /etc/supervisord.conf

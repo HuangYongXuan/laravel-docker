@@ -1,12 +1,12 @@
 FROM centos:latest
 MAINTAINER 754060604@qq.com
 
-COPY index.php nginx.conf run.sh /
+COPY index.php nginx.conf run.sh supervisord.conf /
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm \
-    && yum -y install gcc gcc-c++ wget \
+    && yum -y install gcc gcc-c++ wget supervisor \
     pcre pcre-devel \
     zlib zlib-devel \
     openssl openssl-devel \
@@ -67,10 +67,11 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && chmod +x /run.sh \
     && cp /index.php /usr/www/public \
     && cp /nginx.conf /etc/nginx \
+    && rm -rf /etc/supervisord.conf \
+    && cp /supervisord.conf /etc \
     && rm -rf /usr/download \
     && yum clean all
-
-#  && yum remove -y gcc gcc-c++ wget pcre pcre-devel zlib zlib-devel openssl openssl-devel sudo
+    && yum remove -y gcc gcc-c++ wget pcre-devel zlib-devel openssl openssl-devel sudo
 
 WORKDIR /usr/www
 EXPOSE 8000
