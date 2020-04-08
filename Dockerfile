@@ -10,33 +10,36 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     pcre pcre-devel \
     zlib zlib-devel \
     openssl openssl-devel \
-    php72w-bcmath \
-    php72w-xml \
-    php72w-gd \
-    php72w-cli \
-    php72w-fpm \
-    php72w-pear \
-    php72w-mysqlnd \
-    php72w-devel \
-    php72w-mcrypt \
-    php72w-mbstring \
-    php72w-common \
-    php72w-process \
-    php72w-pdo \
-    php72w-opcache \
-    php72w-intl \
-    php72w-pgsql \
-    php72w-pecl-imagick \
-    php72w-pecl-redis \
-    php72w-pecl-memcached \
-    php72w-pecl-mongodb \
+    php56w-bcmath \
+    php56w-cli \
+    php56w-common \
+    php56w-devel \
+    php56w-fpm \
+    php56w-gd \
+    php56w-imap \
+    php56w-intl \
+    php56w-mbstring \
+    php56w-mcrypt \
+    php56w-mssql \
+    php56w-mysql \
+    php56w-odbc \
+    php56w-opcache \
+    php56w-pdo \
+    php56w-pear \
+    php56w-pgsql \
+    php56w-process \
+    php56w-xml \
+    php56w-pecl-imagick \
+    php56w-pecl-redis \
+    php56w-pecl-memcached \
+    php56w-pecl-mongodb \
     composer \
     sudo \
     && mkdir -p /usr/download \
     && cd /usr/download \
-    && wget -c http://nginx.org/download/nginx-1.17.3.tar.gz \
-    && tar -zxvf nginx-1.17.3.tar.gz \
-    && cd nginx-1.17.3 && sh ./configure --prefix=/usr/local/nginx \
+    && wget -c http://nginx.org/download/nginx-1.17.9.tar.gz \
+    && tar -zxvf nginx-1.17.9.tar.gz \
+    && cd nginx-1.17.9 && sh ./configure --prefix=/usr/local/nginx \
         --sbin-path=/usr/sbin/nginx \
         --conf-path=/etc/nginx/nginx.conf \
         --error-log-path=/var/log/nginx/error.log \
