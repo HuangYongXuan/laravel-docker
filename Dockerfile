@@ -78,7 +78,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && yum remove -y gcc gcc-c++ wget pcre-devel zlib-devel openssl openssl-devel sudo
 
 WORKDIR /usr/www
-EXPOSE 8000
+EXPOSE 80
 VOLUME ["/usr/www"]
 
 ENTRYPOINT /run.sh
